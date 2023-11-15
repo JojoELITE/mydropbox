@@ -30,7 +30,7 @@ function App({ signOut }) {
                 </div>
                 {loading && <Loader/>}
                 <center>
-                    <h2>Welcome to My-DropBox, you can upload your files</h2>
+                    <h2>Welcome to My DropBox, you can upload your files</h2>
                     <h3>V1.1.2</h3>
                     <nav>
                             <span className="m-1">
