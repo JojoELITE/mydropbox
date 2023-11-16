@@ -4,14 +4,16 @@ import '@aws-amplify/ui-react/styles.css';
 import React, {useEffect, useState} from 'react';
 import FileList from "./components/FileList";
 import Upload from "./components/Upload";
-import {Auth} from "aws-amplify";
-import axios from "axios";
+// import {Auth} from "aws-amplify";
+// import axios from "axios";
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Loader from "./components/Loader";
+import Profile from './components/Profile';
+import EditProfile from './components/EditProfile';
 
 
 function App({ signOut }) {
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -29,9 +31,8 @@ function App({ signOut }) {
                     }}>Sign out</Button>
                 </div>
                 {loading && <Loader/>}
-                <center>
-                    <h2>Welcome to My DropBox, you can upload your files</h2>
-                    <h3>V1.1.2</h3>
+                <center className='mt-5 pt-5'>
+                    <h2 className='mb-5'>Welcome to My DropBox, you can upload your files</h2>
                     <nav>
                             <span className="m-1">
                                 <Button className="">
@@ -45,12 +46,24 @@ function App({ signOut }) {
                                 </Button>
                             </span>
 
+                            <span className="m-1">
+                                <Button>
+                                <Link to="/profile">Profile</Link>
+                                </Button>
+                            </span>
 
+                            <span className="m-1">
+                                <Button>
+                                <Link to="/edit-profile">Edit Profile</Link>
+                                </Button>
+                            </span>
 
                     </nav>
                     <Routes>
                             <Route exact path="/" element={<Upload />} />
-                            <Route exact path="files" element={<FileList />} />
+                            <Route exact path="/files" element={<FileList />} />
+                            <Route exact path="/profile" element={<Profile />} />
+                            <Route exact path="/edit-profile" element={<EditProfile />} />
                             <Route path="*" element={<h1>404, No Page Found</h1>} />
                     </Routes>
                 </center>
