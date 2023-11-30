@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {Auth} from "aws-amplify";
 import axios from "axios";
@@ -26,11 +25,12 @@ const Upload = () => {
                 const uploadData = {
                     userId: Id,
                     fileType: file.type,
-                    fileContent: reader.result,
+                    fileContent: reader.result.toString('base64'),
                     fileName: file.name,
                 }
             try {
                 const response = await axios.post('https://rjbw9ux3u9.execute-api.us-west-2.amazonaws.com/prod1/file-upload', uploadData);
+                console.log(response);
                 setFile("")
                 setLoading(false)
                 setSuccess(true)
