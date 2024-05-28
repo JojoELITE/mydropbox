@@ -1,11 +1,8 @@
-import './App.css';
 import { withAuthenticator, Button } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import React, {useEffect, useState} from 'react';
 import FileList from "./components/FileList";
 import Upload from "./components/Upload";
-// import {Auth} from "aws-amplify";
-// import axios from "axios";
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Loader from "./components/Loader";
 import Profile from './components/Profile';
@@ -13,7 +10,6 @@ import EditProfile from './components/EditProfile';
 
 
 function App({ signOut }) {
-    // const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -22,7 +18,7 @@ function App({ signOut }) {
     }, []);
     return (
         <BrowserRouter>
-            <div className="App">
+            <div className="App min-h-screen bg-gradient-to-r from-yellow-400 via-red-500 to-blue-500">
 
                 <div className="flex justify-end p-6">
                     <Button onClick={()=>{
@@ -32,7 +28,7 @@ function App({ signOut }) {
                 </div>
                 {loading && <Loader/>}
                 <center className='mt-5 pt-5'>
-                    <h2 className='mb-5'>Welcome to My DropBox, you can upload your files</h2>
+                    <h2 className='mb-5 text-white text-2xl'>Welcome to MyDropbox, you can upload your files</h2>
                     <nav>
                             <span className="m-1">
                                 <Button className="">

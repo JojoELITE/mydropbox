@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "dropbox2296c4e1e": {
+    "mydropboxfd88ff94": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",

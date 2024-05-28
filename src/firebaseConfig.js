@@ -8,33 +8,14 @@ import "firebase/storage";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAb5Ywtod3lmMUawoAWtNxAKVscDvkQ0x0",
-  authDomain: "my-drop-box.firebaseapp.com",
-  projectId: "my-drop-box",
-  storageBucket: "my-drop-box.appspot.com",
-  messagingSenderId: "993093971273",
-  appId: "1:993093971273:web:fc4f17564c873add867e98",
-  measurementId: "G-TD14NS3HJX"
+  apiKey: "AIzaSyDBaYq-GSOOZuUaYgexiZP859UHN1pveY4",
+  authDomain: "mydropbox-8e637.firebaseapp.com",
+  projectId: "mydropbox-8e637",
+  storageBucket: "mydropbox-8e637.appspot.com",
+  messagingSenderId: "49196202568",
+  appId: "1:49196202568:web:20385c8506c0660cfb367d"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
-
-// import firebase from "firebase/app";
-// import "firebase/storage";
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAb5Ywtod3lmMUawoAWtNxAKVscDvkQ0x0",
-//   authDomain: "my-drop-box.firebaseapp.com",
-//   projectId: "my-drop-box",
-//   storageBucket: "my-drop-box.appspot.com",
-//   messagingSenderId: "993093971273",
-//   appId: "1:993093971273:web:fc4f17564c873add867e98",
-//   measurementId: "G-TD14NS3HJX"
-// };
-
-// firebase.initializeApp(firebaseConfig);
-
-// export const storage = firebase.storage();
-
