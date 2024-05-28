@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Auth } from "aws-amplify";
 import axios from "axios";
 import Loader from "./Loader";
+import FilePreview from "./FilePreview"; // Import FilePreview component
 
 const Upload = () => {
     const [file, setFile] = useState(null)
@@ -44,7 +45,7 @@ const Upload = () => {
 
         };
     }
-    
+
     return (
         <>{loading && <Loader />}
             <div>
@@ -73,31 +74,36 @@ const Upload = () => {
                                     <input type="file" onChange={handleFileChange} className="opacity-0" />
                                 </label>
 
-
-                                {file && <label
-                                    className="flex flex-col w-60 h-32 border-4 border-blue-200 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                                    <p>File Name: {file?.name} </p>
-                                    <p>File Size: {(file?.size / 1024).toFixed(2) + ' KB'}</p>
-                                    <p>File Type: {file?.type}</p>
-                                    <button onClick={() => {
-                                        setFile(null)
-                                    }} className="bg-red-500 hover:bg-red-700 text-white font-bold mx-9 py-2 rounded">
-                                        Clear
-                                    </button>
-                                </label>}
+                                {file && (
+                                    <div>
+                                        <FilePreview file={file} />
+                                        <div className="mt-2 text-center">
+                                            <p>File Name: {file.name}</p>
+                                            <p>File Size: {(file.size / 1024).toFixed(2)} KB</p>
+                                            <p>File Type: {file.type}</p>
+                                            <button
+                                                onClick={() => setFile(null)}
+                                                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 mt-2 rounded"
+                                            >
+                                                Clear
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="flex justify-center p-2">
-                            {file &&
-                                <button onClick={() => { uploadFile() }} className="w-full px-4 py-2 text-white bg-blue-500 rounded shadow-xl">Upload
-                                </button>}
+                            {file && (
+                                <button onClick={uploadFile} className="w-full px-4 py-2 text-white bg-blue-500 rounded shadow-xl">
+                                    Upload
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
                 <br />
             </div>
         </>
-
     );
 }
 

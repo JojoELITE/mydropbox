@@ -1,8 +1,9 @@
 import React from "react";
 import FileIcon from '../assets/file-icon.png'; 
 
-const FilePreview = ({ fileUrl, fileType }) => {
-  const isImage = fileType && fileType.startsWith('image/');
+const FilePreview = ({ file }) => {
+  const fileUrl = URL.createObjectURL(file);
+  const isImage = file.type && file.type.startsWith('image/');
 
   return (
     <div className="flex justify-center items-center border p-4 rounded-md shadow-md bg-gray-50">
